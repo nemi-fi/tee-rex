@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+build
+dist
+.turbo
+.env
+.env.*
+!.env.example
+
+.vscode
+
+cache
+
+.pnpm-store

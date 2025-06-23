@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+
+# Dependencies
+node_modules
+.pnpm-store
+
+# Development files
+.vscode
+.idea
+*.log
+*.md
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Build output
+dist
+build
+*.tsbuildinfo
+
+# Misc
+.DS_Store
+*.swp
+*.swo
