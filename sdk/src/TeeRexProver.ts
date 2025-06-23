@@ -42,11 +42,23 @@ export class TeeRexProver extends BBWASMLazyPrivateKernelProver {
       }
       case "remote": {
         console.log("using remote prover");
-        return this.#remoteCreateClientIvcProof(executionSteps);
+        return this.#remoteCreateClientIvcProofWithFallback(executionSteps);
       }
       default: {
         throw new UnreachableCaseError(this.#provingMode);
       }
+    }
+  }
+
+  async #remoteCreateClientIvcProofWithFallback(
+    ...args: Parameters<typeof this.createClientIvcProof>
+  ) {
+    try {
+      return await this.#remoteCreateClientIvcProof(...args);
+    } catch (error) {
+      console.error("error creating client ivc proof on remote prover", error);
+      console.log("falling back to a local prover");
+      return await super.createClientIvcProof(...args);
     }
   }
 
