@@ -1,0 +1,37 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "//#install-deps": {
+      "cache": false
+    },
+    "bootstrap": {
+      "dependsOn": ["//#install-deps"]
+    },
+    "build": {
+      "dependsOn": ["^bootstrap", "bootstrap", "test:lint"],
+      "cache": false
+    },
+    "start": {
+      "dependsOn": ["^bootstrap", "bootstrap", "test:lint"],
+      "cache": false,
+      "persistent": true
+    },
+    "dev": {
+      "dependsOn": ["^bootstrap", "bootstrap"],
+      "cache": false,
+      "persistent": true
+    },
+    "test:lint": {
+      "dependsOn": ["^bootstrap", "bootstrap"],
+      "outputLogs": "new-only"
+    },
+    "test:unit": {
+      "dependsOn": ["^bootstrap", "bootstrap"],
+      "outputLogs": "new-only"
+    },
+    "test": {
+      "dependsOn": ["test:lint", "test:unit"],
+      "outputLogs": "new-only"
+    }
+  }
+}
