@@ -18,8 +18,8 @@ import { WASMSimulator } from "@aztec/simulator/client";
 // add this
 import { TeeRexProver } from "@nemi-fi/tee-rex";
 
-const TEE_REX_API =
-  "https://b1b6df8133030bdea818ed744b7355d69abab2b8-80.dstack-prod5.phala.network";
+// TEE-Rex is in alpha, email us "morning(at)nemi.fi" to get the TEE Rex API URL
+const TEE_REX_API = "http://localhost:4000";
 const node = createAztecNodeClient("<aztec-node-rpc-url>");
 const config = getPXEServiceConfig();
 const prover = new TeeRexProver(
